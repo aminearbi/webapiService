@@ -15,7 +15,7 @@ namespace CrowdSourcingWebAPI.Service
 
         void DeleteCategory ( Category category );
         bool CheckCategory ( Category category );
-        Category GetCategoryById ( Category category);
+        Category GetCategoryById ( int c);
         IEnumerable<Category> GetCategoriesByTenant (string tenantmail);
 
         //Ideas

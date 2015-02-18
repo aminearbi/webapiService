@@ -10,6 +10,7 @@ namespace CrowdSourcingWebAPI.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "CroudSourcingWebAPI.Data.CrowdSourcingWebAPIContext";
         }
 
         protected override void Seed(CrowdSourcingWebAPI.Data.CrowdSourcingWebAPIContext context)

@@ -56,9 +56,9 @@ namespace CrowdSourcingWebAPI.Service
 
             }
 
-        public Category GetCategoryById ( Category category)
+        public Category GetCategoryById ( int c)
             {
-            return utofwork.CategoryRepository.GetById (category.CategoryId);
+            return utofwork.CategoryRepository.GetById(c);
             }
 
         public IEnumerable<Category> GetCategoriesByTenant (string tenantmail)

@@ -60,6 +60,10 @@
     <Compile Include="Migrations\201502181334378_firstm.Designer.cs">
       <DependentUpon>201502181334378_firstm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502181737372_logindate.cs" />
+    <Compile Include="Migrations\201502181737372_logindate.Designer.cs">
+      <DependentUpon>201502181737372_logindate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ApplicationSkinRepository.cs" />
@@ -85,6 +89,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201502181334378_firstm.resx">
       <DependentUpon>201502181334378_firstm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502181737372_logindate.resx">
+      <DependentUpon>201502181737372_logindate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
