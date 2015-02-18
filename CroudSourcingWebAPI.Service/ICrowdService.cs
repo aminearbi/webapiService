@@ -14,18 +14,18 @@ namespace CrowdSourcingWebAPI.Service
         void EditCategory ( Category category );
 
         void DeleteCategory ( Category category );
-        void CheckCategory ( Category category );
-        Category GetCategoryById ( int id );
-        IEnumerable<Category> GetCategories ();
+        bool CheckCategory ( Category category );
+        Category GetCategoryById ( Category category);
+        IEnumerable<Category> GetCategoriesByTenant (string tenantmail);
 
         //Ideas
         void CreateIdea ( Idea idea );
         void DeleteIdea ( Idea idea );
-        Idea GetIdeaById ( int id );
+        Idea GetIdeaById ( Idea idea );
         IEnumerable<Idea> GetLatestIdeas (string tenantMail);
         IEnumerable<Idea> GetIdeasByCategory(Category category);
         void ChangeIdeaState ( Idea idea );
-        IEnumerable<Idea> GetIdeasByState ( Category category );
+        IEnumerable<Idea> GetIdeasByState ( Category category,string state );
         int CalculateScore (Idea idea);
         
         //Comments

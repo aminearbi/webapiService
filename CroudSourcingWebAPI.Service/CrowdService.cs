@@ -26,72 +26,86 @@ namespace CrowdSourcingWebAPI.Service
         // Internity Start
         public void CreateCategory ( Category category )
             {
-            throw new NotImplementedException ();
+            utofwork.CategoryRepository.Add (category);
+            utofwork.Commit ();
             }
 
         public void EditCategory ( Category category )
             {
-            throw new NotImplementedException ();
+            utofwork.CategoryRepository.Update (category);
+            utofwork.Commit ();
+
             }
 
         public void DeleteCategory ( Category category )
             {
-            throw new NotImplementedException ();
+            utofwork.CategoryRepository.Delete (category);
+            utofwork.Commit ();
             }
 
-        public void CheckCategory ( Category category )
+        public bool CheckCategory ( Category category )
             {
-            throw new NotImplementedException ();
+            bool tester = false;
+            if (utofwork.CategoryRepository.GetMany (i => i.TenantMail.Equals (category.TenantMail) & i.Title.Equals (category.Title))!=null)
+                {
+                tester = true;
+                }
+                
+          
+            return tester;
+
             }
 
-        public Category GetCategoryById ( int id )
+        public Category GetCategoryById ( Category category)
             {
-            throw new NotImplementedException ();
+            return utofwork.CategoryRepository.GetById (category.CategoryId);
             }
 
-        public IEnumerable<Category> GetCategories ()
+        public IEnumerable<Category> GetCategoriesByTenant (string tenantmail)
             {
-            throw new NotImplementedException ();
+            return utofwork.CategoryRepository.GetMany (i => i.TenantMail.Equals (tenantmail));
             }
 
         public void CreateIdea ( Idea idea )
             {
-            throw new NotImplementedException ();
+            utofwork.IdeaRepository.Add (idea);
+            utofwork.Commit ();
             }
 
         public void DeleteIdea ( Idea idea )
             {
-            throw new NotImplementedException ();
+            utofwork.IdeaRepository.Delete (idea);
+            utofwork.Commit ();
             }
 
-        public Idea GetIdeaById ( int id )
+        public Idea GetIdeaById ( Idea idea )
             {
-            throw new NotImplementedException ();
+            return utofwork.IdeaRepository.GetById (idea.IdeaId);
             }
 
         public IEnumerable<Idea> GetLatestIdeas ( string tenantMail )
             {
-            throw new NotImplementedException ();
+            return utofwork.IdeaRepository.GetMany (i => i.TenanMail.Equals (tenantMail));
             }
 
         public IEnumerable<Idea> GetIdeasByCategory ( Category category )
             {
-            throw new NotImplementedException ();
+            return utofwork.IdeaRepository.GetMany (i => i.CategoryId==category.CategoryId);
             }
 
         public void ChangeIdeaState ( Idea idea )
             {
-            throw new NotImplementedException ();
+            utofwork.IdeaRepository.Update (idea);
             }
 
-        public IEnumerable<Idea> GetIdeasByState ( Category category )
+        public IEnumerable<Idea> GetIdeasByState ( Category category, string state )
             {
-            throw new NotImplementedException ();
+            return utofwork.IdeaRepository.GetMany (i => i.CategoryId==category.CategoryId & i.State.Equals(state));
             }
 
         public int CalculateScore ( Idea idea )
             {
-            throw new NotImplementedException ();
+            return utofwork.CommentRepository.GetMany (c => c.IdeaId==idea.IdeaId).Count();
             }
 
         //internity finish
