@@ -93,10 +93,10 @@ namespace CrowdSourcingWebAPI.Service
             {
             throw new NotImplementedException ();
             }
-
+        // ------------------------------------   Yashiroo -------------------------------
         public void CreateComment ( Comment comment )
             {
-            throw new NotImplementedException ();
+                
             }
 
         public void DeleteComment ( Comment comment )
