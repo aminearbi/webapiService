@@ -185,12 +185,12 @@ namespace CrowdSourcingWebAPI.Service
                 utofwork.LogRepository.Add(log);
                 utofwork.Commit();
             }
-        /*
+        
         public void CheckLog ( Log log )
             {
                 
             }
-        */
+        
         public IEnumerable<Log> GetLogByTenant ( string tenantmail )
             {
                 IEnumerable<Log> logs = utofwork.LogRepository.GetMany(t => t.TenantMail.Equals(tenantmail));
