@@ -22,6 +22,6 @@ namespace CrowdSourcingWebAPI.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Log> Logs { get; set; }
         public DbSet<Category> Categories { get; set; }
-        
+        public DbSet<Like> Likes { get; set; }
         }
     }
