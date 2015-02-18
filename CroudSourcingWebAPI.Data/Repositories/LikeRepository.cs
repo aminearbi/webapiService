@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CrowdSourcingWebAPI.Data.Repositories
     {
-    public class LikeRepository : RepositoryBase<Like>, ILogRepository
+    public class LikeRepository : RepositoryBase<Like>, ILikeRepository
         {
         public LikeRepository ( IDatabaseFactory dbFactory )
             : base (dbFactory)
