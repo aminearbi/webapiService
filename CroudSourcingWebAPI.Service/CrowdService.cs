@@ -28,7 +28,7 @@ namespace CrowdSourcingWebAPI.Service
 
         public void CreateIdea ( Domain.Entities.Idea idea )
             {
-            throw new NotImplementedException ();
+                
             }
 
         public void CreateComment ( Domain.Entities.Comment comment )
