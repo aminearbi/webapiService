@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CrowdSourcingWebAPI.Domain.Entities;
 
 namespace CrowdSourcingWebAPI.Service
     {
@@ -21,188 +22,191 @@ namespace CrowdSourcingWebAPI.Service
             utofwork.Dispose ();
             }
 
-        public void CreateCategory ( Domain.Entities.Category category )
-            {
-            
-            }
-
-        public void CreateIdea ( Domain.Entities.Idea idea )
+        public void CreateCategory ( Category category )
             {
                 
             }
 
-        public void CreateComment ( Domain.Entities.Comment comment )
+        public void CreateIdea ( Idea idea )
+            {
+                
+            }
+
+        public void CreateComment ( Comment comment )
+            {
+                utofwork.CommentRepository.Add(comment);
+                utofwork.Commit();
+            }
+
+        public void CreateLog ( Log log )
             {
             throw new NotImplementedException ();
             }
 
-        public void CreateLog ( Domain.Entities.Log log )
+        public Idea GetIdea ( int ideaId )
             {
             throw new NotImplementedException ();
             }
 
-        public Domain.Entities.Idea GetIdea ( int ideaId )
+        public Category GetCategory ( int categoryId )
             {
             throw new NotImplementedException ();
             }
 
-        public Domain.Entities.Category GetCategory ( int categoryId )
+        public IEnumerable<Category> GetCategories ()
             {
             throw new NotImplementedException ();
             }
 
-        public IEnumerable<Domain.Entities.Category> GetCategories ()
+        public IEnumerable<Idea> GetIdeas ()
             {
             throw new NotImplementedException ();
             }
 
-        public IEnumerable<Domain.Entities.Idea> GetIdeas ()
+        public IEnumerable<Idea> GetIdeasByCategory ( int CategoryId )
             {
             throw new NotImplementedException ();
             }
 
-        public IEnumerable<Domain.Entities.Idea> GetIdeasByCategory ( int CategoryId )
+        public IEnumerable<Comment> GetComments ()
+            {
+                IEnumerable<Comment> comments = utofwork.CommentRepository.GetAll();
+                return comments;
+            }
+
+        public IEnumerable<Comment> GetCommentsByIdea ( int IdeaId )
+            {
+                Idea i = utofwork.IdeaRepository.GetById(IdeaId);
+                IEnumerable<Comment> comments = utofwork.IdeaRepository.GetMany(Where)
+            }
+
+        public IEnumerable<Log> GetLogs ()
             {
             throw new NotImplementedException ();
             }
 
-        public IEnumerable<Domain.Entities.Comment> GetComments ()
-            {
-            throw new NotImplementedException ();
-            }
-
-        public IEnumerable<Domain.Entities.Comment> GetCommentsByIdea ( int IdeaId )
-            {
-            throw new NotImplementedException ();
-            }
-
-        public IEnumerable<Domain.Entities.Log> GetLogs ()
-            {
-            throw new NotImplementedException ();
-            }
-
-        public IEnumerable<Domain.Entities.Log> GetLogsByUser ( int userId )
+        public IEnumerable<Log> GetLogsByUser ( int userId )
             {
             throw new NotImplementedException ();
             }
 
 
-        public void EditCategory ( Domain.Entities.Category category )
+        public void EditCategory ( Category category )
             {
             throw new NotImplementedException ();
             }
 
-        public void DeleteCategory ( Domain.Entities.Category category )
+        public void DeleteCategory ( Category category )
             {
             throw new NotImplementedException ();
             }
 
-        public void CheckCategory ( Domain.Entities.Category category )
+        public void CheckCategory ( Category category )
             {
             throw new NotImplementedException ();
             }
 
-        public Domain.Entities.Category GetCategoryById ( int id )
+        public Category GetCategoryById ( int id )
             {
             throw new NotImplementedException ();
             }
 
-        public void DeleteIdea ( Domain.Entities.Idea idea )
+        public void DeleteIdea ( Idea idea )
             {
             throw new NotImplementedException ();
             }
 
-        public Domain.Entities.Idea GetIdeaById ( int id )
+        public Idea GetIdeaById ( int id )
             {
             throw new NotImplementedException ();
             }
 
-        public IEnumerable<Domain.Entities.Idea> GetLatestIdeas ( string tenantMail )
+        public IEnumerable<Idea> GetLatestIdeas ( string tenantMail )
             {
             throw new NotImplementedException ();
             }
 
-        public IEnumerable<Domain.Entities.Idea> GetIdeasByCategory ( Domain.Entities.Category category )
+        public IEnumerable<Idea> GetIdeasByCategory ( Category category )
             {
             throw new NotImplementedException ();
             }
 
-        public void ChangeIdeaState ( Domain.Entities.Idea idea )
+        public void ChangeIdeaState ( Idea idea )
             {
             throw new NotImplementedException ();
             }
 
-        public IEnumerable<Domain.Entities.Idea> GetIdeasByState ( Domain.Entities.Category category )
+        public IEnumerable<Idea> GetIdeasByState ( Category category )
             {
             throw new NotImplementedException ();
             }
 
-        public int CalculateScore ( Domain.Entities.Idea idea )
+        public int CalculateScore ( Idea idea )
             {
             throw new NotImplementedException ();
             }
 
-        public void DeleteComment ( Domain.Entities.Comment comment )
+        public void DeleteComment ( Comment comment )
             {
             throw new NotImplementedException ();
             }
 
-        public void CheckComment ( Domain.Entities.Comment comment )
+        public void CheckComment ( Comment comment )
             {
             throw new NotImplementedException ();
             }
 
-        public Domain.Entities.Comment GetCommentById ( int id )
+        public Comment GetCommentById ( int id )
             {
             throw new NotImplementedException ();
             }
 
-        public IEnumerable<Domain.Entities.Comment> GetCommentsByIdea ( Domain.Entities.Idea idea )
+        public IEnumerable<Comment> GetCommentsByIdea ( Idea idea )
             {
             throw new NotImplementedException ();
             }
 
-        public void CreateSkin ( Domain.Entities.ApplicationSkin skin )
+        public void CreateSkin ( ApplicationSkin skin )
             {
             throw new NotImplementedException ();
             }
 
-        public void EditSkin ( Domain.Entities.ApplicationSkin skin )
+        public void EditSkin ( ApplicationSkin skin )
             {
             throw new NotImplementedException ();
             }
 
-        public Domain.Entities.ApplicationSkin GetSkinByTenant ( string tenantmail )
+        public ApplicationSkin GetSkinByTenant ( string tenantmail )
             {
             throw new NotImplementedException ();
             }
 
-        public void CreateLike ( Domain.Entities.Like like )
+        public void CreateLike ( Like like )
             {
             throw new NotImplementedException ();
             }
 
-        public void DeleteLike ( Domain.Entities.Like like )
+        public void DeleteLike ( Like like )
             {
             throw new NotImplementedException ();
             }
 
-        public void CheckLike ( Domain.Entities.Like like )
+        public void CheckLike ( Like like )
             {
             throw new NotImplementedException ();
             }
 
-        public IEnumerable<Domain.Entities.Like> GetLikeByIdea ( Domain.Entities.Idea idea )
+        public IEnumerable<Like> GetLikeByIdea ( Idea idea )
             {
             throw new NotImplementedException ();
             }
 
-        public void CheckLog ( Domain.Entities.Log log )
+        public void CheckLog ( Log log )
             {
             throw new NotImplementedException ();
             }
 
-        public IEnumerable<Domain.Entities.Log> GetLogByTenant ( string tenantmail )
+        public IEnumerable<Log> GetLogByTenant ( string tenantmail )
             {
             throw new NotImplementedException ();
             }
