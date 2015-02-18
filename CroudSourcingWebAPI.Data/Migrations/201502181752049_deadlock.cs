@@ -3,7 +3,7 @@ namespace CrowdSourcingWebAPI.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class firstm : DbMigration
+    public partial class deadlock : DbMigration
     {
         public override void Up()
         {
@@ -80,7 +80,7 @@ namespace CrowdSourcingWebAPI.Data.Migrations
                 c => new
                     {
                         LogId = c.Int(nullable: false, identity: true),
-                        LoginDate = c.DateTime(),
+                        EventDate = c.DateTime(nullable: false),
                         Event = c.String(nullable: false),
                         EventType = c.String(),
                         TenantMail = c.String(),

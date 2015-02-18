@@ -7,13 +7,13 @@ namespace CrowdSourcingWebAPI.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.2-31219")]
-    public sealed partial class firstm : IMigrationMetadata
+    public sealed partial class deadlock : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(firstm));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(deadlock));
         
         string IMigrationMetadata.Id
         {
-            get { return "201502181334378_firstm"; }
+            get { return "201502181752049_deadlock"; }
         }
         
         string IMigrationMetadata.Source
