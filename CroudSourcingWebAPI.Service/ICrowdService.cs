@@ -31,7 +31,6 @@ namespace CrowdSourcingWebAPI.Service
         //Comments
         void CreateComment ( Comment comment );
         void DeleteComment ( Comment comment );
-        void CheckComment ( Comment comment );
         Comment GetCommentById ( int id );
         IEnumerable<Comment> GetCommentsByIdea ( Idea idea );
 
@@ -45,7 +44,7 @@ namespace CrowdSourcingWebAPI.Service
         //Like
         void CreateLike ( Like like );
         void DeleteLike ( Like like );
-        void CheckLike ( Like like );
+        bool CheckLike ( Like like );
         IEnumerable<Like> GetLikeByIdea(Idea idea);
         
 

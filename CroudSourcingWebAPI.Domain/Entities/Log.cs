@@ -13,7 +13,7 @@ namespace CrowdSourcingWebAPI.Domain.Entities
         [Key]
         public int LogId { get; set; }
         // public DateTime LogDate { get; set; } // moved to event date
-        public DateTime? LoginDate { get; set; }
+        public DateTime EventDate { get; set; }
         [Required (AllowEmptyStrings = false)]
         public string Event { get; set; }
         public string EventType { get; set; }

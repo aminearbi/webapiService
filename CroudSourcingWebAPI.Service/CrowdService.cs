@@ -98,77 +98,89 @@ namespace CrowdSourcingWebAPI.Service
 
         public void CreateComment ( Comment comment )
             {
-            throw new NotImplementedException ();
+                utofwork.CommentRepository.Add(comment);
+                utofwork.Commit();
             }
 
         public void DeleteComment ( Comment comment )
             {
-            throw new NotImplementedException ();
+                utofwork.CommentRepository.Delete(comment);
+                utofwork.Commit();
             }
 
-        public void CheckComment ( Comment comment )
-            {
-            throw new NotImplementedException ();
-            }
 
         public Comment GetCommentById ( int id )
             {
-            throw new NotImplementedException ();
+                Comment c = utofwork.CommentRepository.GetById(id);
+                return c;
             }
 
         public IEnumerable<Comment> GetCommentsByIdea ( Idea idea )
             {
-            throw new NotImplementedException ();
+                IEnumerable<Comment> comments = utofwork.CommentRepository.GetMany(i => i.IdeaId == idea.IdeaId);
+                return comments;
             }
 
         public void CreateSkin ( ApplicationSkin skin )
             {
-            throw new NotImplementedException ();
+                utofwork.ApplicationSkinRepository.Add(skin);
+                utofwork.Commit();
             }
 
         public void EditSkin ( ApplicationSkin skin )
             {
-            throw new NotImplementedException ();
+                utofwork.ApplicationSkinRepository.Update(skin);
+                utofwork.Commit();
             }
 
         public ApplicationSkin GetSkinByTenant ( string tenantmail )
             {
-            throw new NotImplementedException ();
+                ApplicationSkin a = utofwork.ApplicationSkinRepository.Get(app => app.TenantMail.Equals(tenantmail));
+                return a;
             }
 
         public void CreateLike ( Like like )
             {
-            throw new NotImplementedException ();
+                utofwork.LikeRepository.Add(like);
+                utofwork.Commit();
             }
 
         public void DeleteLike ( Like like )
             {
-            throw new NotImplementedException ();
+                utofwork.LikeRepository.Delete(like);
+                utofwork.Commit();
             }
 
-        public void CheckLike ( Like like )
+        public bool CheckLike ( Like like )
             {
-            throw new NotImplementedException ();
+                IEnumerable<Like> list = utofwork.LikeRepository.GetMany(l => l.IdeaId == like.IdeaId & l.WriterMail == like.WriterMail);
+                if (list.Cast<object>().Count() != 0)
+                    return true;
+                else 
+                    return false;
             }
 
         public IEnumerable<Like> GetLikeByIdea ( Idea idea )
             {
-            throw new NotImplementedException ();
+                IEnumerable<Like> likes = utofwork.LikeRepository.GetMany(l => l.IdeaId == idea.IdeaId);
+                return likes;
             }
 
         public void CreateLog ( Log log )
             {
-            throw new NotImplementedException ();
+                utofwork.LogRepository.Add(log);
+                utofwork.Commit();
             }
-
+        /*
         public void CheckLog ( Log log )
             {
-            throw new NotImplementedException ();
+                
             }
-
+        */
         public IEnumerable<Log> GetLogByTenant ( string tenantmail )
             {
-            throw new NotImplementedException ();
+                IEnumerable<Log> logs = utofwork.LogRepository.GetMany(t => t.TenantMail.Equals(tenantmail));
+                return logs;
             }
         }
     }
