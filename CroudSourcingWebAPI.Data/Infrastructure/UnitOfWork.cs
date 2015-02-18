@@ -54,5 +54,16 @@ namespace CrowdSourcingWebAPI.Data.Infrastructure
             {
             dbFactory.Dispose ();
             }
+
+        private ILikeRepository likeRepository;
+        public ILikeRepository LikeRepository
+            {
+            get { return likeRepository=new LikeRepository (dbFactory); }
+            }
+        private IApplicationSkinRepository applicationSkinRepository;
+        public IApplicationSkinRepository ApplicationSkinRepository
+            {
+            get { return applicationSkinRepository=new ApplicationSkinRepository(dbFactory); }
+            }
         }
     }

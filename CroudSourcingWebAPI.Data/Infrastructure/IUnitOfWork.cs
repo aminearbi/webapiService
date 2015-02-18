@@ -15,6 +15,8 @@ namespace CrowdSourcingWebAPI.Data.Infrastructure
         ICommentRepository CommentRepository { get; }
         ICategoryRepository CategoryRepository { get; }
         ILogRepository LogRepository { get; }
+        ILikeRepository LikeRepository { get; }
+        IApplicationSkinRepository ApplicationSkinRepository { get; }
 
         
         }
