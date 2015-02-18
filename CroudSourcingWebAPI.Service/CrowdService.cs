@@ -23,7 +23,7 @@ namespace CrowdSourcingWebAPI.Service
             }
 
 
-
+        // Internity Start
         public void CreateCategory ( Category category )
             {
             throw new NotImplementedException ();
@@ -93,10 +93,12 @@ namespace CrowdSourcingWebAPI.Service
             {
             throw new NotImplementedException ();
             }
-        // ------------------------------------   Yashiroo -------------------------------
+
+        //internity finish
+
         public void CreateComment ( Comment comment )
             {
-                
+            throw new NotImplementedException ();
             }
 
         public void DeleteComment ( Comment comment )
