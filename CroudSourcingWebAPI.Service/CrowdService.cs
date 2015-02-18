@@ -23,7 +23,7 @@ namespace CrowdSourcingWebAPI.Service
 
         public void CreateCategory ( Domain.Entities.Category category )
             {
-            throw new NotImplementedException ();
+            
             }
 
         public void CreateIdea ( Domain.Entities.Idea idea )
@@ -82,6 +82,127 @@ namespace CrowdSourcingWebAPI.Service
             }
 
         public IEnumerable<Domain.Entities.Log> GetLogsByUser ( int userId )
+            {
+            throw new NotImplementedException ();
+            }
+
+
+        public void EditCategory ( Domain.Entities.Category category )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public void DeleteCategory ( Domain.Entities.Category category )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public void CheckCategory ( Domain.Entities.Category category )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public Domain.Entities.Category GetCategoryById ( int id )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public void DeleteIdea ( Domain.Entities.Idea idea )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public Domain.Entities.Idea GetIdeaById ( int id )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public IEnumerable<Domain.Entities.Idea> GetLatestIdeas ( string tenantMail )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public IEnumerable<Domain.Entities.Idea> GetIdeasByCategory ( Domain.Entities.Category category )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public void ChangeIdeaState ( Domain.Entities.Idea idea )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public IEnumerable<Domain.Entities.Idea> GetIdeasByState ( Domain.Entities.Category category )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public int CalculateScore ( Domain.Entities.Idea idea )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public void DeleteComment ( Domain.Entities.Comment comment )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public void CheckComment ( Domain.Entities.Comment comment )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public Domain.Entities.Comment GetCommentById ( int id )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public IEnumerable<Domain.Entities.Comment> GetCommentsByIdea ( Domain.Entities.Idea idea )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public void CreateSkin ( Domain.Entities.ApplicationSkin skin )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public void EditSkin ( Domain.Entities.ApplicationSkin skin )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public Domain.Entities.ApplicationSkin GetSkinByTenant ( string tenantmail )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public void CreateLike ( Domain.Entities.Like like )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public void DeleteLike ( Domain.Entities.Like like )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public void CheckLike ( Domain.Entities.Like like )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public IEnumerable<Domain.Entities.Like> GetLikeByIdea ( Domain.Entities.Idea idea )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public void CheckLog ( Domain.Entities.Log log )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public IEnumerable<Domain.Entities.Log> GetLogByTenant ( string tenantmail )
             {
             throw new NotImplementedException ();
             }
