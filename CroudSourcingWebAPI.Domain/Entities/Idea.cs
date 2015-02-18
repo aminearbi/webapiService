@@ -17,7 +17,7 @@ namespace CrowdSourcingWebAPI.Domain.Entities
             public string Subject { get; set; }
             public DateTime DatePosted { get; set; }
             [DefaultValue(0)]   
-            public int? Score { get; set; }
+            public int Score { get; set; }
             public string State { get; set; }
             [Required (AllowEmptyStrings=false)]
             [DataType (DataType.MultilineText)]
