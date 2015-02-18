@@ -22,74 +22,12 @@ namespace CrowdSourcingWebAPI.Service
             utofwork.Dispose ();
             }
 
+
+
         public void CreateCategory ( Category category )
             {
-                
-            }
-
-        public void CreateIdea ( Idea idea )
-            {
-                
-            }
-
-        public void CreateComment ( Comment comment )
-            {
-                utofwork.CommentRepository.Add(comment);
-                utofwork.Commit();
-            }
-
-        public void CreateLog ( Log log )
-            {
             throw new NotImplementedException ();
             }
-
-        public Idea GetIdea ( int ideaId )
-            {
-            throw new NotImplementedException ();
-            }
-
-        public Category GetCategory ( int categoryId )
-            {
-            throw new NotImplementedException ();
-            }
-
-        public IEnumerable<Category> GetCategories ()
-            {
-            throw new NotImplementedException ();
-            }
-
-        public IEnumerable<Idea> GetIdeas ()
-            {
-            throw new NotImplementedException ();
-            }
-
-        public IEnumerable<Idea> GetIdeasByCategory ( int CategoryId )
-            {
-            throw new NotImplementedException ();
-            }
-
-        public IEnumerable<Comment> GetComments ()
-            {
-                IEnumerable<Comment> comments = utofwork.CommentRepository.GetAll();
-                return comments;
-            }
-
-        public IEnumerable<Comment> GetCommentsByIdea ( int IdeaId )
-            {
-                Idea i = utofwork.IdeaRepository.GetById(IdeaId);
-                IEnumerable<Comment> comments = utofwork.IdeaRepository.GetMany(Where)
-            }
-
-        public IEnumerable<Log> GetLogs ()
-            {
-            throw new NotImplementedException ();
-            }
-
-        public IEnumerable<Log> GetLogsByUser ( int userId )
-            {
-            throw new NotImplementedException ();
-            }
-
 
         public void EditCategory ( Category category )
             {
@@ -107,6 +45,16 @@ namespace CrowdSourcingWebAPI.Service
             }
 
         public Category GetCategoryById ( int id )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public IEnumerable<Category> GetCategories ()
+            {
+            throw new NotImplementedException ();
+            }
+
+        public void CreateIdea ( Idea idea )
             {
             throw new NotImplementedException ();
             }
@@ -142,6 +90,11 @@ namespace CrowdSourcingWebAPI.Service
             }
 
         public int CalculateScore ( Idea idea )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public void CreateComment ( Comment comment )
             {
             throw new NotImplementedException ();
             }
@@ -197,6 +150,11 @@ namespace CrowdSourcingWebAPI.Service
             }
 
         public IEnumerable<Like> GetLikeByIdea ( Idea idea )
+            {
+            throw new NotImplementedException ();
+            }
+
+        public void CreateLog ( Log log )
             {
             throw new NotImplementedException ();
             }
