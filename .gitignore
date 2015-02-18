@@ -191,3 +191,4 @@ ModelManifest.xml
 # my files
 CrowdSourcingWebAPI.WebAPI/packages.config
 CrowdSourcingWebAPI.WebAPI/Web.config
+CrowdSourcingWebAPI.Data/Migrations/*
