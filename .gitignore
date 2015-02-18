@@ -187,3 +187,7 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+
+# my files
+CrowdSourcingWebAPI.WebAPI/packages.config
+CrowdSourcingWebAPI.WebAPI/Web.config
