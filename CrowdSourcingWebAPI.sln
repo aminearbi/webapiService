@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrowdSourcingWebAPI.Data", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrowdSourcingWebAPI.Service", "CroudSourcingWebAPI.Service\CrowdSourcingWebAPI.Service.csproj", "{5CC8165B-C9CE-4B57-8BD1-D2E680564B62}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrowdSourcingWebAPI.WebAPI", "CrowdSourcingWebAPI.WebAPI\CrowdSourcingWebAPI.WebAPI.csproj", "{AC3C4038-69D6-41B7-946B-1CE3D7175D5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5CC8165B-C9CE-4B57-8BD1-D2E680564B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CC8165B-C9CE-4B57-8BD1-D2E680564B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CC8165B-C9CE-4B57-8BD1-D2E680564B62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC3C4038-69D6-41B7-946B-1CE3D7175D5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC3C4038-69D6-41B7-946B-1CE3D7175D5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC3C4038-69D6-41B7-946B-1CE3D7175D5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC3C4038-69D6-41B7-946B-1CE3D7175D5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

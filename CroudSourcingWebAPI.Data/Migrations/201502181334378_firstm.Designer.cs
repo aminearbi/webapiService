@@ -7,13 +7,13 @@ namespace CrowdSourcingWebAPI.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.2-31219")]
-    public sealed partial class Ideas : IMigrationMetadata
+    public sealed partial class firstm : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Ideas));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(firstm));
         
         string IMigrationMetadata.Id
         {
-            get { return "201502181126074_Ideas"; }
+            get { return "201502181334378_firstm"; }
         }
         
         string IMigrationMetadata.Source
