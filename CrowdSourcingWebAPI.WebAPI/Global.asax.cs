@@ -1,11 +1,14 @@
-﻿using System;
+﻿using CrowdSourcingWebAPI.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Xml.Serialization;
 
 namespace CrowdSourcingWebAPI.WebAPI
 {
@@ -18,7 +21,12 @@ namespace CrowdSourcingWebAPI.WebAPI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            GlobalConfiguration.Configuration.Formatters.XmlFormatter.UseXmlSerializer = true;
+            var xml = GlobalConfiguration.Configuration.Formatters.XmlFormatter;
+            xml.UseXmlSerializer = true;
+            GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.JsonFormatter);
+
+            
+
         }
     }
 }

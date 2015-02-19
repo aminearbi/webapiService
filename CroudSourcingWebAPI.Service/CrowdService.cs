@@ -78,9 +78,9 @@ namespace CrowdSourcingWebAPI.Service
             utofwork.Commit ();
             }
 
-        public Idea GetIdeaById ( Idea idea )
+        public Idea GetIdeaById ( int id )
             {
-            return utofwork.IdeaRepository.GetById (idea.IdeaId);
+            return utofwork.IdeaRepository.GetById (id);
             }
 
         public IEnumerable<Idea> GetLatestIdeas ( string tenantMail )

@@ -21,7 +21,7 @@ namespace CrowdSourcingWebAPI.Service
         //Ideas
         void CreateIdea ( Idea idea );
         void DeleteIdea ( Idea idea );
-        Idea GetIdeaById ( Idea idea );
+        Idea GetIdeaById ( int id );
         IEnumerable<Idea> GetLatestIdeas (string tenantMail);
         IEnumerable<Idea> GetIdeasByCategory(Category category);
         void ChangeIdeaState ( Idea idea );
