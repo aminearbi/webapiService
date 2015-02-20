@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace CrowdSourcingWebAPI.Domain.Entities
     {
@@ -26,7 +27,7 @@ namespace CrowdSourcingWebAPI.Domain.Entities
             [ForeignKey ("CategoryId")]
             public virtual Category Category { get; set; }
             public int CategoryId { get; set; }
-            public virtual ICollection<Comment> Comments { get; set; }
+            public virtual IEnumerable<Comment> Comments { get; set; }
             
             public string WriterMail { get; set; }
             public string TenanMail { get; set; }

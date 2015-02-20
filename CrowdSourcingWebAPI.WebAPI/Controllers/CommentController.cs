@@ -12,31 +12,35 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
     public class CommentController : ApiController
     {
         CrowdService service;
-        Util util;
+
         public CommentController()
         {
             service = new CrowdService();
-            util = new Util();
         }
         // GET: api/Comment
         // gets comments for a certain idea
-        public IEnumerable<Comment> GetCommentsForIDea(Idea idea)
+        
+        public IEnumerable<Comment> GetCommentsForIdea(int id)
         {
-            IEnumerable<Comment> comments = service.GetCommentsByIdea(idea);
+            
+            Idea idea = service.GetIdeaById(id);
+            IEnumerable<Comment> comments = service.GetCommentsByIdea(idea) ;
             if (comments.Count() != 0)
                 return comments;
-            else throw new HttpResponseException(HttpStatusCode.NotFound);
+             
+            
+           else throw new HttpResponseException(HttpStatusCode.NotFound);
         }
-
+        
         // GET: api/Comment/5
+        /*
         public Comment GetComment(int id)
         {
             Comment c = service.GetCommentById(id);
-            if (c.CommentId == 0)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            else return c;
+            return c;
+            //throw new HttpResponseException(HttpStatusCode.MovedPermanently);
         }
-
+        */
         // POST: api/Comment
         public HttpResponseMessage PostComment(Comment comment)
         {
@@ -54,16 +58,13 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
                 service.CreateComment(comment);
                 return new HttpResponseMessage(HttpStatusCode.Created);
             }
-            else return new HttpResponseMessage(HttpStatusCode.BadRequest);
+            else return new HttpResponseMessage(HttpStatusCode.NoContent);
         }
 
         // PUT: api/Comment/5
-        public void Put(int id, [FromBody]string value)
+        public HttpResponseException Put(int id, [FromBody]string value)
         {
-
-
-
-
+            throw new HttpResponseException(HttpStatusCode.MovedPermanently);
         }
 
         // DELETE: api/Comment/5
