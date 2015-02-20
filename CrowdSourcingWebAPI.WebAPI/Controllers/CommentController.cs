@@ -12,11 +12,11 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
     public class CommentController : ApiController
     {
         CrowdService service;
-        Util util;
+        
         public CommentController()
         {
             service = new CrowdService();
-            util = new Util();
+            
         }
         // GET: api/Comment
         // gets comments for a certain idea
