@@ -64,7 +64,7 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
         // PUT: api/Comment/5
         public HttpResponseException Put(int id, [FromBody]string value)
         {
-            throw new HttpResponseException(HttpStatusCode.MovedPermanently);
+            throw new HttpResponseException(HttpStatusCode.Forbidden);
         }
 
         // DELETE: api/Comment/5

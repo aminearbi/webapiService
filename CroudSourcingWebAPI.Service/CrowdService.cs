@@ -173,6 +173,11 @@ namespace CrowdSourcingWebAPI.Service
                 else 
                     return false;
             }
+        public Like GetLikeById(int id)
+        {
+            Like like = utofwork.LikeRepository.GetById(id);
+            return like;
+        }
 
         public IEnumerable<Like> GetLikeByIdea ( Idea idea )
             {
@@ -182,6 +187,7 @@ namespace CrowdSourcingWebAPI.Service
 
         public void CreateLog ( Log log )
             {
+                log.EventDate = DateTime.Now;
                 utofwork.LogRepository.Add(log);
                 utofwork.Commit();
             }

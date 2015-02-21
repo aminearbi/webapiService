@@ -56,7 +56,7 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
         // DELETE: api/ApplicationSkin/5
         public HttpResponseMessage Delete(int id)
         {
-            throw new HttpResponseException(HttpStatusCode.MovedPermanently);
+            throw new HttpResponseException(HttpStatusCode.Forbidden);
         }
     }
 }
