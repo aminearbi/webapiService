@@ -26,12 +26,12 @@ namespace CrowdSourcingWebAPI.WebAPI
             GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.JsonFormatter);
             var xml = GlobalConfiguration.Configuration.Formatters.XmlFormatter;
             xml.UseXmlSerializer = true;
-            
             */
-            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            var json = GlobalConfiguration.Configuration.Formatters;
+            json.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 
-            GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
-
+            json.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
+            json.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("text/plain"));
             //xml.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/xml"));
             /*
             xml.SetSerializer<Comment>(new XmlSerializer(typeof(Comment)));

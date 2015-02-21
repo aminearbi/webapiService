@@ -45,6 +45,7 @@ namespace CrowdSourcingWebAPI.Service
         void CreateLike ( Like like );
         void DeleteLike ( Like like );
         bool CheckLike ( Like like );
+        Like GetLikeById(int id);
         IEnumerable<Like> GetLikeByIdea(Idea idea);
         
 

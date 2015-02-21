@@ -56,13 +56,9 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201502181752049_deadlock.cs" />
-    <Compile Include="Migrations\201502181752049_deadlock.Designer.cs">
-      <DependentUpon>201502181752049_deadlock.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502181737372_logindate.cs" />
-    <Compile Include="Migrations\201502181737372_logindate.Designer.cs">
-      <DependentUpon>201502181737372_logindate.cs</DependentUpon>
+    <Compile Include="Migrations\201502191610482_first.cs" />
+    <Compile Include="Migrations\201502191610482_first.Designer.cs">
+      <DependentUpon>201502191610482_first.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,11 +83,8 @@
     <Folder Include="Configurations\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201502181752049_deadlock.resx">
-      <DependentUpon>201502181752049_deadlock.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502181737372_logindate.resx">
-      <DependentUpon>201502181737372_logindate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201502191610482_first.resx">
+      <DependentUpon>201502191610482_first.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
