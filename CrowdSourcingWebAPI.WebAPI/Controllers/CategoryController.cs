@@ -6,7 +6,8 @@ using System.Net.Http;
 using System.Web.Http;
 using CrowdSourcingWebAPI.Domain.Entities;
 using CrowdSourcingWebAPI.Service;
-using System.Web.Mvc;
+
+
 namespace CrowdSourcingWebAPI.WebAPI.Controllers
 {
     [RoutePrefix("api/Category")]
@@ -33,7 +34,7 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
         return service.GetCategoriesByTenant (tenant);
         }
 
-        [Route ("GetById/{id}/")]
+        [System.Web.Mvc.Route ("GetById/{id}/")]
         public Category GetCategory(int id)
         {
             Category c = service.GetCategoryById(id);
