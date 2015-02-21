@@ -6,10 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using CrowdSourcingWebAPI.WebAPI.Utils;
+
 
 namespace CrowdSourcingWebAPI.WebAPI.Controllers
 {
+    [RoutePrefix("api/Idea")]
     public class IdeaController : ApiController
     {
         CrowdService service;
@@ -26,25 +27,40 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
                 }
             base.Dispose (disposing);
             }
-        // GET: api/Idea
-        public string Get()
+        [Route("GetIdeaById/{id}")]
+        public Idea GetIdeaById ( int id )
         {
-        Idea a = new Idea ();
-        a.CategoryId=1;
-        a.TenanMail="helloworld";
-        a.Subject="luckyluck";
-        return a.Serialize (); ;
+        Idea a = service.GetIdeaById (id);
+        return a ;
         }
 
-        // GET: api/Idea/5
-        public string Get(int id)
+        [Route ("GetIdeaByCategory/{id}")]
+        public IEnumerable<Idea> GetIdeaByCategory ( int id )
         {
-            return "value";
+        
+        Category c = service.GetCategoryById (id);
+
+        return service.GetIdeasByCategory (c);
         }
+
+        [Route ("GetIdeaByTenant/{tenant}/")]
+        [HttpGet]
+        public IEnumerable<Idea> GetIdeaByTenant ( string tenant)
+            {
+            
+            return service.GetLatestIdeas(tenant);
+            }
 
         // POST: api/Idea
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post ( Idea idea )
         {
+        if (idea!=null)
+            {
+            service.CreateIdea (idea);
+            return new HttpResponseMessage(HttpStatusCode.Created);
+            }
+        else throw new HttpResponseException (HttpStatusCode.NoContent);
+            
         }
 
         // PUT: api/Idea/5
@@ -53,8 +69,19 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
         }
 
         // DELETE: api/Idea/5
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
+        if (id!=0)
+            {
+            Idea i= service.GetIdeaById (id);
+            service.DeleteIdea (i);
+            return new HttpResponseMessage (HttpStatusCode.Accepted);
+            
+            }
+        else
+            {
+            throw new HttpResponseException (HttpStatusCode.NotFound);
+            }
         }
     }
 }

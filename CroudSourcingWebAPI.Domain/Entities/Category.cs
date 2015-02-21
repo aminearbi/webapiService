@@ -16,6 +16,12 @@ namespace CrowdSourcingWebAPI.Domain.Entities
             
             public string Title { get; set; }
             public string TenantMail { get; set; }
+            public override int GetHashCode ()
+                {
+                return base.GetHashCode ();
+                }
+
+           
             
         }
     }
