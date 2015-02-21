@@ -6,8 +6,11 @@ using System.Net.Http;
 using System.Web.Http;
 using CrowdSourcingWebAPI.Domain.Entities;
 using CrowdSourcingWebAPI.Service;
+
+
 namespace CrowdSourcingWebAPI.WebAPI.Controllers
 {
+    [RoutePrefix("api/Category")]
     public class CategoryController : ApiController
     {
         CrowdService service;
@@ -25,13 +28,13 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
             base.Dispose (disposing);
             }
         // GET: api/Category
-        
+        [Route("GetByTenant/{tenant}/")]
         public IEnumerable<Category> Get(string tenant)
         {
         return service.GetCategoriesByTenant (tenant);
         }
 
-        // GET: api/Category/5
+        [System.Web.Mvc.Route ("GetById/{id}/")]
         public Category GetCategory(int id)
         {
             Category c = service.GetCategoryById(id);
@@ -39,14 +42,17 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
         }
 
         // POST: api/Category
+        [HttpPost]
         public HttpResponseMessage PostCategory(Category c)
         {
             if (c.Title != null)
             {
             if (service.CheckCategory (c)==false) { 
                 service.CreateCategory(c);
+
             }
-                return new HttpResponseMessage(HttpStatusCode.Created);
+            return new HttpResponseMessage (HttpStatusCode.Accepted);
+                
             }
             else
                 throw new HttpResponseException(HttpStatusCode.NoContent);
@@ -59,10 +65,18 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
         }
 
         // DELETE: api/Category/5
-        public void Delete(int id)
+        public HttpResponseMessage Delete ( int id )
         {
+        if (id!=0) { 
             Category c= service.GetCategoryById(id);
             service.DeleteCategory (c);
+            return new HttpResponseMessage(HttpStatusCode.Accepted);
+        }
+        else { 
+            throw new HttpResponseException (HttpStatusCode.NoContent);
+            }
+               
+           
         }
     }
 }

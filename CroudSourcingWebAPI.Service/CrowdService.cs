@@ -46,9 +46,11 @@ namespace CrowdSourcingWebAPI.Service
         public bool CheckCategory ( Category category )
             {
             bool tester = false;
-            if (utofwork.CategoryRepository.GetMany (i => i.TenantMail.Equals (category.TenantMail) & i.Title.Equals (category.Title))!=null)
+            IEnumerable<Category> ss = utofwork.CategoryRepository.GetAll ();
+            foreach (Category c in ss)
                 {
-                tester = true;
+                if (c.Equals (ss))
+                    tester=true;
                 }
                 
           
