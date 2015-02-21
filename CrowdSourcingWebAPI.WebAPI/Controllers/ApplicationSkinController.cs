@@ -23,6 +23,7 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
         }
 
         // GET: api/ApplicationSkin/5
+        [Route("api/applicationskin/{tenantemail}/")]
         public ApplicationSkin Get(string tenantemail)
         {
             ApplicationSkin a = service.GetSkinByTenant(tenantemail);

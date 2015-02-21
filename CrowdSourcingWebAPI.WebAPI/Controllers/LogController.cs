@@ -27,7 +27,24 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
         // GET: api/Log/email
         [HttpPost]
         [Route("api/log/email")]
+        public IEnumerable<Log> GetLogsForTenant(JObject o)
+        {
+            string tenantemail = o["email"].ToObject<string>();
+            if (tenantemail != null)
+            {
+                IEnumerable<Log> logs = service.GetLogByTenant(tenantemail);
+                return logs;
+
+            }
+            else throw new HttpResponseException(HttpStatusCode.NotFound);
+
+
+        }
+
         // content must be sent as a json array with email attribute. Encoding MUST be set to text/plain
+        /*
+        [HttpPost]
+        [Route("api/log/email")]
         public IEnumerable<Log> GetLogsForTenant(JObject o)
         {
             string tenantemail = o["email"].ToObject<string>();
@@ -41,6 +58,9 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
             
 
         }
+        */
+
+
         [HttpPost]
         
         // POST: api/Log
