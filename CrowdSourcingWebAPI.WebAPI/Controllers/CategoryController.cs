@@ -14,11 +14,21 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
         public CategoryController()
         {
             service = new CrowdService();
+            
         }
+        protected override void Dispose ( bool disposing )
+            {
+            if (disposing)
+                {
+                service.Dispose ();
+                }
+            base.Dispose (disposing);
+            }
         // GET: api/Category
-        public IEnumerable<string> Get()
+        
+        public IEnumerable<Category> Get(string tenant)
         {
-            return new string[] { "value1", "value2" };
+        return service.GetCategoriesByTenant (tenant);
         }
 
         // GET: api/Category/5
@@ -33,7 +43,9 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
         {
             if (c.Title != null)
             {
+            if (service.CheckCategory (c)==false) { 
                 service.CreateCategory(c);
+            }
                 return new HttpResponseMessage(HttpStatusCode.Created);
             }
             else
@@ -43,11 +55,14 @@ namespace CrowdSourcingWebAPI.WebAPI.Controllers
         // PUT: api/Category/5
         public void Put(int id, [FromBody]string value)
         {
+
         }
 
         // DELETE: api/Category/5
         public void Delete(int id)
         {
+            Category c= service.GetCategoryById(id);
+            service.DeleteCategory (c);
         }
     }
 }
