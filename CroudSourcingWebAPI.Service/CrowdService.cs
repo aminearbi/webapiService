@@ -49,9 +49,10 @@ namespace CrowdSourcingWebAPI.Service
             IEnumerable<Category> ss = utofwork.CategoryRepository.GetAll ();
             foreach (Category c in ss)
                 {
-                if (c.Equals (ss))
-                    tester=true;
+                if (c.Title.Equals(category.Title) )
+                 tester = true;
                 }
+            
                 
           
             return tester;
@@ -95,6 +96,10 @@ namespace CrowdSourcingWebAPI.Service
             return utofwork.IdeaRepository.GetMany (i => i.CategoryId==category.CategoryId);
             }
 
+        public IEnumerable<Idea> GetIdeasByTenant(string tenantemail)
+        {
+            return utofwork.IdeaRepository.GetMany(i => i.TenanMail == tenantemail);
+        }
         public void ChangeIdeaState ( Idea idea )
             {
             utofwork.IdeaRepository.Update (idea);

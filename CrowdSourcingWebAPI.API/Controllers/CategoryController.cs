@@ -34,6 +34,7 @@ namespace CrowdSourcingWebAPI.API.Controllers
         }
 
     [Route ("GetById/{id}/")]
+    
     public Category GetCategoryById ( int id )
         {
         Category c = service.GetCategoryById (id);
@@ -49,9 +50,10 @@ namespace CrowdSourcingWebAPI.API.Controllers
             if (service.CheckCategory (c)==false)
                 {
                 service.CreateCategory (c);
-
+                return new HttpResponseMessage(HttpStatusCode.Accepted);
                 }
-            return new HttpResponseMessage (HttpStatusCode.Accepted);
+            else
+                return new HttpResponseMessage(HttpStatusCode.NotAcceptable);
 
             }
         else

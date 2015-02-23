@@ -26,11 +26,11 @@ namespace CrowdSourcingWebAPI.API.Controllers
     }
     */
     // GET: api/Log/email
-    [HttpPost]
-    [Route ("api/log/email")]
-    public IEnumerable<Log> GetLogsForTenant ( JObject o )
+    
+    [Route ("api/log/getbytenant/{tenantemail}/")]
+    public IEnumerable<Log> GetLogsForTenant(string tenantemail)
         {
-        string tenantemail = o["email"].ToObject<string> ();
+        
         if (tenantemail != null)
             {
             IEnumerable<Log> logs = service.GetLogByTenant (tenantemail);

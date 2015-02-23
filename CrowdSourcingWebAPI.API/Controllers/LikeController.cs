@@ -29,6 +29,11 @@ namespace CrowdSourcingWebAPI.API.Controllers
             if (idea != null && idea.IdeaId != 0)
                 {
                 IEnumerable<Like> likes = service.GetLikeByIdea (idea);
+                foreach(Like like in likes)
+                {
+                    like.Idea = null;
+                    
+                }
                 int count = likes.Cast<object> ().Count ();
                 if (count != 0)
                     return likes;

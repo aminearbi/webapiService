@@ -1,5 +1,6 @@
 ﻿using CrowdSourcingWebAPI.Domain.Entities;
 using CrowdSourcingWebAPI.Service;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,10 +24,12 @@ namespace CrowdSourcingWebAPI.API.Controllers
             throw new HttpResponseException(HttpStatusCode.Forbidden);
         }
 
-        // GET: api/ApplicationSkin/5
-        [Route("api/applicationskin/{tenantemail}/")]
-        public ApplicationSkin Get(string tenantemail)
+        // POST: api/applicationskin/tenant     // sends
+        [HttpPost]
+        [Route("api/applicationskin/tenant")]
+        public ApplicationSkin Get(JObject o)
         {
+            string tenantemail = o["email"].ToObject<string>();
             ApplicationSkin a = service.GetSkinByTenant(tenantemail);
             if (a != null)
                 return a;

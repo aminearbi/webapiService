@@ -34,9 +34,14 @@ namespace CrowdSourcingWebAPI.API.Controllers
             }
 
         // GET: api/Idea/5
-        public string Get ( int id )
+        [Route("GetIdeasByTenant/{tenant}/")]
+        public IEnumerable<Idea> Get ( string tenant )
             {
-            return "value";
+                if (tenant != null)
+                {
+                    return service.GetIdeasByTenant(tenant);
+                }
+                else throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
         // POST: api/Idea
